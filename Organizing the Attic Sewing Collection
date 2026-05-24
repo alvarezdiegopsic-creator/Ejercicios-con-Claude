@@ -1,0 +1,49 @@
+# Challenge
+# Create a program that helps organize a grandparent's sewing collection with three tasks:
+# First, check if a donation appointment can be rescheduled. Read the original day and the new day - if the new day is at least 3 days later, print "Reschedule allowed", otherwise print "Cannot reschedule".
+# Second, find the Kth missing spool number. Read how many spools exist, then their numbers, then K. Print which positive spool number is the Kth one missing from the sequence starting at 1.
+# Third, calculate the remaining craft budget. Read the starting amount and purchase cost, then print the balance left.
+
+# Read the original day and new day for the appointment
+original_day = int(input())
+new_day = int(input())
+
+# TODO: Check if new_day is at least 3 days later than original_day
+# Print "Reschedule allowed" or "Cannot reschedule"
+if new_day - original_day >= 3:
+    print("Reschedule allowed")
+else:
+    print("Cannot reschedule")
+
+# Read the number of spools that exist
+n = int(input())
+
+# Read the spool numbers (they're on one line, separated by spaces)
+spools = list(map(int, input().split()))
+
+# Read K - which missing number we're looking for
+k = int(input())
+
+# TODO: Find the Kth missing positive number from the sequence starting at 1
+# For example, if spools are [2, 3, 5], missing numbers are [1, 4, 6, 7, ...]
+# Print the Kth missing number
+missing_count = 0
+num = 0
+while True:
+    num += 1
+    if num not in spools:
+        missing_count += 1
+        if missing_count == k:
+            print(num)
+            break
+
+# Read the starting budget amount
+starting_amount = float(input())
+
+# Read the purchase cost
+purchase_cost = float(input())
+
+# TODO: Calculate and print the remaining balance
+# Print the result
+remaining_balance = starting_amount - purchase_cost
+print(f"{remaining_balance:.2f}")
